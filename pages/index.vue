@@ -52,12 +52,12 @@ export default {
     },
     mounted() {
       // alert(this.$store.state.todos);
-      firebase.firestore().collection('todos').get().then((res) =>{
+      firebase.firestore().collection('todos').get().then((res) => {
           res.forEach(x => {
-             this.$store.commit('setTodo',x.data().todo);
+              this.$store.commit('setTodo',x.data().todo)
           })
-      
       })
+      
     },
    
     methods: {
@@ -68,8 +68,19 @@ export default {
             {
                 //this.todos.push(this.todo);
                // this.$store.commit('addTodo', this.todo);
-               this.$store.commit('setTodo',this.todo)
-                this.todo = ''
+               firebase.firestore().collection('todos').add({
+
+      }).then((res) => {
+      firebase.firestore().collection('todos').doc(res.id).set({
+          todo: this.todo,
+          id: res.id
+      })
+      }).then(() => {
+            this.$store.commit('setTodo',({'todo':this.todo, 'id':res.id}));
+             this.todo=""
+      })
+           
+   
             }
         },
         removeTodo(index) {
