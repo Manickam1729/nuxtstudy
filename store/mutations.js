@@ -6,7 +6,7 @@ export default {
   
     addTodo(state,payload) {
        // alert(payload)
-       state.todos.push({'todo':payload.todo, 'id': payload.id});
+       state.todos.push({todo:payload.todo, id: payload.id})
     },
 
     setTodo(state,payload) {

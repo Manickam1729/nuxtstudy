@@ -76,17 +76,25 @@ export default {
           id: res.id
       })
       }).then(() => {
-            this.$store.commit('setTodo',({'todo':this.todo, 'id':res.id}));
+            this.$store.commit('setTodo',({todo:this.todo, id:res.id}));
              this.todo=""
       })
            
    
             }
         },
-        removeTodo(index) {
+        removeTodo(todo ,index) {
             //alert(index);
             //this.$delete(this.todos,index);
-            this.$store.commit('removeTodo',index);
+            
+            firebase.firestore().collection('todos').doc(todo.id).delete().then(() =>{
+              
+
+              console.log("successfully deleted");
+               this.$store.commit('removeTodo',index);
+               
+
+            })
         }
     }
        
