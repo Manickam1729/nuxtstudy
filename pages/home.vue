@@ -14,11 +14,10 @@
 <script>
 import test from '../helpers/test';
 //import { getUserFromCookie } from '@/helpers';
-import hello from '~/modules/hello.js';
+//import hello from '~/modules/hello.js';
 export default {
  
     name: "Home page",
-    modules: [hello],
      data() {
         return {
            // movieName:'Marra',

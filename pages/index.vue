@@ -37,24 +37,29 @@
 </template>
 
 <script>
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 export default {
-
     data() {
         return {
             todo:''
         }
     },
     computed:{
-        
         todos(){
-
          return this.$store.state.todos
         }
     },
     mounted() {
-      
       // alert(this.$store.state.todos);
+      firebase.firestore().collection('todos').get().then((res) =>{
+          res.forEach(x => {
+             this.$store.commit('setTodo',x.data().todo);
+          })
+      
+      })
     },
+   
     methods: {
         sub() {
             console.log(this.todo);
@@ -62,7 +67,8 @@ export default {
             if(this.todo)
             {
                 //this.todos.push(this.todo);
-                this.$store.commit('addTodo', this.todo);
+               // this.$store.commit('addTodo', this.todo);
+               this.$store.commit('setTodo',this.todo)
                 this.todo = ''
             }
         },

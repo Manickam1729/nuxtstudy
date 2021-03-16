@@ -31,15 +31,15 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+   
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-   message: 'hello',
+   //message: 'hello',
   modules: [ 'bootstrap-vue/nuxt',
-           
-    '~/modules/hello',
+                          
+   // '~/modules/hello',
     // Passing options directly
-    ['~/modules/hello', { token: '123' }]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
