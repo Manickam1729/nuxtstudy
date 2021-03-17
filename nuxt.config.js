@@ -31,12 +31,13 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-   
+   //'~/modules/ngrok/index.js'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
    //message: 'hello',
   modules: [ 'bootstrap-vue/nuxt',
+  '~/modules/ngrok/index.js'
                           
    // '~/modules/hello',
     // Passing options directly

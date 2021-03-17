@@ -20,9 +20,9 @@ export default {
        state.todos.push(payload);
     },
 
-    removeTodo(state, payload) {
+    removeTodo(state, index) {
         
-      Vue.delete(state.todos, payload);
+      Vue.delete(state.todos, index);
 
     }
 }

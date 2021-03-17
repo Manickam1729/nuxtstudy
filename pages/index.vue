@@ -54,7 +54,7 @@ export default {
       // alert(this.$store.state.todos);
       firebase.firestore().collection('todos').get().then((res) => {
           res.forEach(x => {
-              this.$store.commit('setTodo',x.data().todo)
+              this.$store.commit('setTodo',x.data())
           })
       })
       
@@ -76,7 +76,7 @@ export default {
           id: res.id
       })
       }).then(() => {
-            this.$store.commit('setTodo',({todo:this.todo, id:res.id}));
+            this.$store.commit('addTodo',({todo:this.todo, id: res.id}));
              this.todo=""
       })
            
