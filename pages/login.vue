@@ -1,18 +1,26 @@
 <template>
-    <div class="login">
-        <h1> Login Vue </h1>
+<div class="">
+<header>
+<h1> Login Vue </h1>
+</header>
+    <div class="login flex flex-row justify-center" > 
       <form @submit.prevent="pressed">
-          <div class="login">
-              <input type="text" placeholder="email" v-model="email"> 
+          <div class="login ">
+              <input
+              class="focus:ring-2 focus:ring-blue-600 px-6 py-2  hover"
+               type="text" placeholder="email" v-model="email"> 
               </div>
           <div class="password">
-             <input type="password" placeholder="password" v-model="password">
+             <input
+             class="focus:ring-2 focus:ring-blue-600 px-6 py-2"
+              type="password" placeholder="password" v-model="password">
           </div>
-          <button>Login</button>
+          <button class="bg-blue-400 text-black hover:bg-yellow px-4 py-2">Login</button>
        </form>
        <div class="error" v-if='error'> {error.message} </div>
 
     </div>
+</div>
 </template>
 
 <script>

@@ -2,24 +2,23 @@
 
 
 
-<div class="onvi">
+<div class="flex justify-center onvi">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
 <section class="section">
-    <div class="head">
+    <div class="flex flex-row head tracking-wide">
  <h1> About ONVI </h1>
     </div>
-    <div class="mul">
- <p> Indis's first digital multiplex. A unique and innovative platform
- for the movie makers. </p>
-    </div>
-    <div class="movie">
- <p> The movie name is {{ message }} </p>
- </div>
+    <ul class=" flex flex-col list-disc mul">
+ <li> Indis's first digital multiplex. A unique and innovative platform
+ for the movie makers. </li>
+ <li> The movie name is <p class="underline font-black" >{{ message }} </p> </li>
+ </ul>
+ 
  <ul>
       <li class="list-group-item"  v-for="movie in movies" :key="movie">{{movie}}</li>
  </ul>
- <button class="bg-red-500 hover:bg-grey-700 text-black font-bold py-2 px-4 rounded" type="submit" @click= "sub()"> Sub </button>
+ <button class="bg-red-500 text px-3 py-2 rounded hover:bg-blue-500" type="submit" @click= "sub()"> Sub </button>
 </section>  
 </div>
 </template>
@@ -42,7 +41,8 @@ export default {
         methods: {
              sub() {
                  this.message = "Marra";
-                 return this.message;
+                 this.movie = "Karnan";
+                 return (this.message, this.movie);
                  console.log(this.message);
              }
         }
@@ -57,7 +57,7 @@ export default {
 }
 
 .head {
-    background-color:Blue;
+   
     /*position:relative;
     left:12rem;
     */
